@@ -14,13 +14,17 @@ class TestExpandingDropList:
         'question,answer,text',
         [
             [QuestionLocators.HOW_MUCH, QuestionLocators.HOW_MUCH_ANSWER, TextAnswerDropList.text_how_much],
-            [QuestionLocators.SEVERAL_SCOOTERS, QuestionLocators.SEVERAL_SCOOTER_ANSWER, TextAnswerDropList.text_want_scooters],
+            [QuestionLocators.SEVERAL_SCOOTERS, QuestionLocators.SEVERAL_SCOOTER_ANSWER,
+             TextAnswerDropList.text_want_scooters],
             [QuestionLocators.TIMES, QuestionLocators.TIMES_ANSWER, TextAnswerDropList.text_how_rental],
-            [QuestionLocators.ORDER_FOR_TODAY, QuestionLocators.ORDER_FOR_TODAY_ANSWER, TextAnswerDropList.text_possible_order],
-            [QuestionLocators.EXTEND_OF_REFUND, QuestionLocators.EXTEND_OR_REFUND_ANSWER, TextAnswerDropList.text_extend_or_return],
+            [QuestionLocators.ORDER_FOR_TODAY, QuestionLocators.ORDER_FOR_TODAY_ANSWER,
+             TextAnswerDropList.text_possible_order],
+            [QuestionLocators.EXTEND_OF_REFUND, QuestionLocators.EXTEND_OR_REFUND_ANSWER,
+             TextAnswerDropList.text_extend_or_return],
             [QuestionLocators.CHARGING, QuestionLocators.CHARGING_ANSWER, TextAnswerDropList.text_bringing_charges],
             [QuestionLocators.CANCEL, QuestionLocators.CANSEL_ANSWER, TextAnswerDropList.text_cansel],
-            [QuestionLocators.BEYOND_THE_MKAD, QuestionLocators.BEYOND_THE_MKAD_ANSWER, TextAnswerDropList.text_far_life]
+            [QuestionLocators.BEYOND_THE_MKAD, QuestionLocators.BEYOND_THE_MKAD_ANSWER,
+             TextAnswerDropList.text_far_life]
         ]
     )
     def test_expanding_drop_list(self, driver, question, answer, text):

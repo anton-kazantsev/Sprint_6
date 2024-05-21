@@ -1,5 +1,5 @@
 from pages.main_page import MainPageScooter
-from pages.order_page_steps import OrderPageSteps
+from pages.order_page import OrderPageScooter
 from conftest import driver
 import allure
 from data import DataForOrder
@@ -12,7 +12,7 @@ class TestOrderScooter:
     @allure.description('Позитивный сценарий создания заказа аренды самоката через маленькую кнопку заказать')
     def test_order_button_in_header(self, driver):
         search_button_order = MainPageScooter(driver)
-        test_order_scooter = OrderPageSteps(driver)
+        test_order_scooter = OrderPageScooter(driver)
         search_button_order.open_page(DaraUrl.SCOOTER)
         search_button_order.click_button_order_in_header()
         test_order_scooter.first_step_order(DataForOrder.data_order_1['name'], DataForOrder.data_order_1['surname'],
@@ -28,7 +28,7 @@ class TestOrderScooter:
     @allure.description('Позитивный сценарий создания заказа аренды самоката через большую кнопку Заказать')
     def test_order_big_button(self, driver):
         search_button_order = MainPageScooter(driver)
-        test_order_scooter = OrderPageSteps(driver)
+        test_order_scooter = OrderPageScooter(driver)
         search_button_order.open_page(DaraUrl.SCOOTER)
         search_button_order.button_order_in_page()
         test_order_scooter.first_step_order(DataForOrder.data_order_2['name'], DataForOrder.data_order_2['surname'],
@@ -43,18 +43,18 @@ class TestOrderScooter:
     @allure.title('Проверяем возможность перехода на главную страницу через нажатие на надпись Самокат')
     @allure.description('При нажатие на текст Самокат происходит переход на главную страницу')
     def test_go_to_main_page(self, driver):
-        test_order_scooter = OrderPageSteps(driver)
+        test_order_scooter = OrderPageScooter(driver)
         test_order_scooter.open_page(DaraUrl.SCOOTER + 'order')
         test_order_scooter.click_logo_scooter()
-        assert driver.current_url == DaraUrl.SCOOTER
+        test_order_scooter.url_scooter()
 
     @allure.title('Проверяем возможность перехода на страницу Дзен через нажатие на текст Яндекс')
     @allure.description('При нажатие на текст Яндекс происходит переход на страницу Дзен')
     def test_go_to_dzen(self, driver):
-        test_order_scooter = OrderPageSteps(driver)
+        test_order_scooter = OrderPageScooter(driver)
         test_order_scooter.open_page(DaraUrl.SCOOTER)
         test_order_scooter.click_logo_yandex()
         test_order_scooter.wait_and_open_tab()
-        driver.switch_to.window(driver.window_handles[-1])
+        test_order_scooter.move_to_next_window()
         test_order_scooter.wait_and_title_tab()
-        assert DaraUrl.DZEN in driver.current_url
+        test_order_scooter.url_dzn()

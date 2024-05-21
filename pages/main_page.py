@@ -5,18 +5,6 @@ import allure
 
 class MainPageScooter(PageBase):
 
-    # Открытие списка с вопросами
-    def open_drop_list(self, question):
-        self.driver.find_element(*question).click()
-
-    # Сравнение текста в выпадающем окне
-    def text_comparison_drop_list(self, answer):
-        return self.driver.find_element(*answer).text
-
-    # Нажатие большой кнопки Заказать на главном окне
-    def click_big_button_order(self):
-        self.driver.find_element(*QuestionLocators.BIG_BUTTON_ORDER).click()
-
     @allure.step('Нажатие на раздел Вопроса о главном')
     def expanding_list(self, question, answer):
         self.scroll_element(QuestionLocators.QUESTIONS_ABOUT_IMPORTANT)
