@@ -1,5 +1,6 @@
 from pages.main_page import MainPageScooter
 from pages.order_page import OrderPageScooter
+from pages.header_page import HeaderPage
 from conftest import driver
 import allure
 from data import DataForOrder
@@ -11,7 +12,7 @@ class TestOrderScooter:
     @allure.title('Проверяем возможность заказа на кнопку Заказать в хэдере')
     @allure.description('Позитивный сценарий создания заказа аренды самоката через маленькую кнопку заказать')
     def test_order_button_in_header(self, driver):
-        search_button_order = MainPageScooter(driver)
+        search_button_order = HeaderPage(driver)
         test_order_scooter = OrderPageScooter(driver)
         search_button_order.open_page(DaraUrl.SCOOTER)
         search_button_order.click_button_order_in_header()
@@ -43,7 +44,7 @@ class TestOrderScooter:
     @allure.title('Проверяем возможность перехода на главную страницу через нажатие на надпись Самокат')
     @allure.description('При нажатие на текст Самокат происходит переход на главную страницу')
     def test_go_to_main_page(self, driver):
-        test_order_scooter = OrderPageScooter(driver)
+        test_order_scooter = HeaderPage(driver)
         test_order_scooter.open_page(DaraUrl.SCOOTER + 'order')
         test_order_scooter.click_logo_scooter()
         test_order_scooter.url_scooter()
@@ -51,7 +52,7 @@ class TestOrderScooter:
     @allure.title('Проверяем возможность перехода на страницу Дзен через нажатие на текст Яндекс')
     @allure.description('При нажатие на текст Яндекс происходит переход на страницу Дзен')
     def test_go_to_dzen(self, driver):
-        test_order_scooter = OrderPageScooter(driver)
+        test_order_scooter = HeaderPage(driver)
         test_order_scooter.open_page(DaraUrl.SCOOTER)
         test_order_scooter.click_logo_yandex()
         test_order_scooter.wait_and_open_tab()
